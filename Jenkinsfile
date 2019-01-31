@@ -2,8 +2,12 @@ pipeline {
   agent {
         label 'master'
     }
-   find . | grep @tmp$ | xargs -n1 rm -fr
   stages {
+    stage('to delete temp workspace') {
+      steps {
+      sh 'find . | grep @tmp$ | xargs -n1 rm -fr'
+      }
+    }
     stage('Deploy Standalone') { 
       steps {
         sh 'mvn deploy -P standalone'
