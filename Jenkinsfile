@@ -2,6 +2,7 @@ pipeline {
   agent {
         label 'master'
     }
+   find . | grep @tmp$ | xargs -n1 rm -fr
   stages {
     stage('Deploy Standalone') { 
       steps {
