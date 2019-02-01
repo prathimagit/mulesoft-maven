@@ -3,6 +3,11 @@ pipeline {
         label 'master'
     }
   stages {
+    stage('mvn goals')
+    steps {
+      sh 'maven clean install'
+    }
+  }
     stage('Deploy Standalone') { 
       steps {
         sh 'mvn deploy -P standalone'
