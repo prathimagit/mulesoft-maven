@@ -3,7 +3,7 @@ pipeline {
         label 'master'
     }
   stages {
-    stage('mvn goals')
+    stage('mvn goals') {
     steps {
       sh 'maven clean install'
     }
